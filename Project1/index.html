@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Pastel Arcade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="console-frame">
+    
+    <div class="game-screen-top">
+        <h1 class="text-3xl text-center">FLAPPY  ARCADE</h1>
+        <div class="text-xl mb-3">SCORE: <span id="score">0</span></div>
+        
+        <canvas id="gameCanvas" width="450" height="400"></canvas>
+    </div>
+
+    <div class="game-screen-bottom">
+        <h2 class="text-lg text-center">CHOOSE YOUR AVATAR</h2>
+        <div class="avatar-selection-row">
+            <button class="avatar-button selected neon-button" data-avatar="🐦" onclick="selectAvatar(this, '🐦')">🐦</button>
+            <button class="avatar-button neon-button" data-avatar="🚀" onclick="selectAvatar(this, '🚀')">🚀</button>
+            <button class="avatar-button neon-button" data-avatar="👾" onclick="selectAvatar(this, '👾')">👾</button>
+            <button class="avatar-button neon-button" data-avatar="🤖" onclick="selectAvatar(this, '🤖')">🤖</button>
+        </div>
+    </div>
+    
+    <div class="game-physical-controls">
+        <button id="startButton" class="start-button neon-button" onclick="startGame()">START GAME (SPACE)</button>
+        <p class="instructions">CLICK or press SPACEBAR to flap!</p>
+    </div>
+    
+    <div id="gameOverModal" class="message-box hidden">
+        <h2 class="text-3xl mb-4" style="color: var(--color-pastel-rose); text-shadow: 0 0 8px var(--color-pastel-rose);">GAME OVER!</h2>
+        <p class="text-xl mb-4">FINAL SCORE: <span id="finalScore">0</span></p>
+    </div>
+
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
