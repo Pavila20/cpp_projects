@@ -1,3 +1,3 @@
 # cpp_projects
 
-This showcases my  Projects
+This showcases my Personal Projects
