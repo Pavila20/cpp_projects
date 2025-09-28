@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Catcher Game</title>
+
+  <!-- Orbitron font for that futuristic starry vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Link to our separate CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ==================== GAME CONTAINER ==================== -->
+  <div class="game-container">
+    <!-- Title: The Big Shiny Headliner -->
+    <h1>STAR CATCHER</h1>
+
+    <!-- Score and Lives Panel -->
+    <div class="score-panel">
+      <div class="score-display">SCORE: <span id="score">0</span></div>
+      <div class="lives-display">LIVES: <span id="lives">3</span></div>
+      <div class="high-score-display">
+        HIGH SCORE: <span id="highScoreName">N/A</span> - <span id="highScore">0</span>
+      </div>
+    </div>
+
+    <!-- The playground where stars fall and your bucket catches them -->
+    <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+    <!-- Start Button -->
+    <button id="startButton" class="start-button">Start Game</button>
+
+    <!-- ==================== REGISTRATION MODAL ==================== -->
+    <div id="registrationModal" class="modal-backdrop hidden">
+      <div class="modal-content">
+        <h2>Welcome to Star Catcher!</h2>
+        <p>Please enter your player name (max 15 characters):</p>
+        <input type="text" id="playerNameInput" class="modal-input" maxlength="15">
+        <p class="modal-message">High Score: <span id="regHighScoreName">N/A</span> - <span id="regHighScore">0</span></p>
+        <button id="registerSubmitButton" class="start-button">Start Playing</button>
+      </div>
+    </div>
+
+    <!-- ==================== GAME OVER MODAL ==================== -->
+    <div id="gameOverModal" class="modal-backdrop hidden">
+      <div class="modal-content">
+        <h2 id="gameOverTitle">GAME OVER!</h2>
+        <p>You have lost, <span id="finalPlayerName">Player</span>.</p>
+        <p>Your Final Score: <strong id="finalScore">0</strong></p>
+        <p class="modal-message" id="newHighScoreMessage"></p>
+        <button id="gameOverRestartButton" class="start-button">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to our separate JS file -->
+  <script src="script.js"></script>
+</body>
+</html>

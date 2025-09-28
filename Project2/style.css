@@ -1,0 +1,173 @@
+/* ==================== GLOBAL STYLING ==================== */
+body {
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+
+  /* Starry vibes! Our animated spacey background */
+  background: url("https://i.pinimg.com/originals/c0/65/c8/c065c84a8ebfe5e6c6678a8d1ee06ed0.gif")
+    no-repeat center center fixed;
+  background-size: cover;
+
+  color: #fff;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== GAME CONTAINER ==================== */
+.game-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent for glow effect */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(5, 253, 253, 0.6),
+              inset 0 0 20px rgba(250, 180, 250, 0.4);
+  border: 3px solid #1ed4b6;
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+  color: #ff0808;
+}
+
+/* ==================== TITLE ==================== */
+h1 {
+  font-size: 3.5rem;
+  color: #e5f838;
+  text-shadow: 0 0 5px rgba(136, 65, 141, 0.5),
+               0 0 15px rgba(255, 150, 200, 0.7),
+               0 0 30px rgba(150, 200, 255, 0.6);
+  margin-bottom: 25px;
+  letter-spacing: 4px;
+}
+
+/* ==================== SCORE PANEL ==================== */
+.score-panel {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  border: 1px solid #c8a2c8;
+  color: #8c78c0;
+  text-shadow: 0 0 8px rgba(140, 120, 192, 0.5);
+}
+
+.high-score-display {
+  font-size: 1.1rem;
+  color: #e6a9cb;
+  text-shadow: 0 0 8px rgba(230, 169, 203, 0.5);
+}
+
+/* ==================== CANVAS ==================== */
+canvas {
+  border: 5px solid #a2d2ff;
+  box-shadow: 0 0 25px rgba(162, 210, 255, 0.8),
+              inset 0 0 20px rgba(200, 200, 255, 0.5);
+  display: block;
+  margin: 0 auto 25px;
+  border-radius: 15px;
+  background: radial-gradient(circle at 50% 50%, #ffffff 10%, #f0f8ff 100%);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="10" fill="none" stroke="%23E0C3FC" stroke-width="2"/></svg>'), pointer;
+}
+
+/* ==================== BUTTONS ==================== */
+.start-button {
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #a2d2ff, #e0c3fc);
+  color: #5a3c8a;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(162, 210, 255, 0.7), 0 0 25px rgba(224, 195, 252, 0.6);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.start-button:hover {
+  background: linear-gradient(45deg, #fbc2eb, #a6c1ee);
+  color: #8a3c5a;
+  box-shadow: 0 0 20px rgba(251, 194, 235, 0.8), 0 0 35px rgba(166, 193, 238, 0.7);
+  transform: scale(1.1);
+}
+
+.start-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px #fbc2eb;
+}
+
+/* ==================== MODALS ==================== */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(220, 230, 240, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(180, 150, 250, 0.7), 0 0 40px rgba(250, 180, 250, 0.5);
+  text-align: center;
+  max-width: 90%;
+  min-width: 350px;
+  color: #555;
+  border: 3px solid #b0a0e0;
+}
+
+.modal-input {
+  padding: 15px;
+  margin: 20px 0;
+  width: 90%;
+  border: 2px solid #a2d2ff;
+  border-radius: 10px;
+  background: #f0f8ff;
+  color: #555;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(162, 210, 255, 0.4) inset;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modal-input:focus {
+  border-color: #fbc2eb;
+  box-shadow: 0 0 15px rgba(251, 194, 235, 0.6), 0 0 20px rgba(250, 180, 250, 0.4) inset;
+  outline: none;
+}
+
+.modal-message {
+  color: #e6a9cb;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 8px rgba(230, 169, 203, 0.5);
+  font-size: 1.1rem;
+}
+
+#newHighScoreMessage {
+  font-size: 1.4rem;
+  color: #9370db;
+  text-shadow: 0 0 10px rgba(147, 112, 219, 0.6);
+}
+
+.hidden {
+  display: none !important;
+}
